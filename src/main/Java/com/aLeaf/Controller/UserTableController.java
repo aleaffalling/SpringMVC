@@ -5,6 +5,7 @@ import com.aLeaf.Services.UserTableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("UserController")
@@ -14,13 +15,15 @@ public class UserTableController {
     private UserTableService userTableService;
 
     @RequestMapping("/UserFind")
-    public String UserFind(){
+    @ResponseBody
+    public UserTable UserFind(){
         UserTable u = userTableService.selectByPrimaryKey("1");
         System.out.println(u.getU_id()+"输出名字");
-        return u.getU_id();
+        return u;
     }
 
     @RequestMapping("/InsertUserTable")
+    @ResponseBody
     public String InsertUserTable(){
         UserTable u =new UserTable();
         u.setU_id("2");

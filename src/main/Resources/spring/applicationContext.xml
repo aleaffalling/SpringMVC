@@ -50,4 +50,5 @@
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.aLeaf.Services.Impl.*ServiceImpl.*(..))"/>
     </aop:config>
+
 </beans>
